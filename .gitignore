@@ -1,0 +1,74 @@
+# ============================================
+# Teseu
+# ============================================
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# ASP.NET / .NET
+**/bin/
+**/obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio / Rider
+.vs/
+.idea/
+
+# VS Code local settings
+.vscode/
+
+# Flutter / Dart
+.dart_tool/
+.packages
+.pub/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Android
+**/android/.gradle/
+**/android/local.properties
+*.jks
+*.keystore
+
+# iOS / macOS
+**/ios/Pods/
+**/ios/.symlinks/
+**/macos/Pods/
+
+# Environment / credentials
+*.pem
+*.key
+*.pfx
+*.p12
+secrets/
+credentials/
+
+# Docker volumes / persistent data
+data/
+volumes/
+backups/
+
+# Game servers
+**/Saved/
+**/SaveGames/
+**/world/
+**/world_nether/
+**/world_the_end/
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.swp
