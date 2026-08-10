@@ -1,0 +1,22 @@
+services:
+  teseu-api:
+    build:
+      context: ../../../backend/Teseu.Api
+      dockerfile: Dockerfile
+
+    container_name: teseu-api
+
+    restart: unless-stopped
+
+    ports:
+      - "5050:8080"
+
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+
+    networks:
+      - teseu-network
+
+networks:
+  teseu-network:
+    name: teseu-network
