@@ -21,13 +21,9 @@ app.MapGet("/", () =>
 
 app.MapGet("/api/server/status", async (PrometheusService prometheus) =>
 {
-    var nodeName = await prometheus.GetNodeNameAsync();
+    var status = await prometheus.GetServerStatusAsync();
 
-    return Results.Ok(new
-    {
-        hostname = nodeName,
-        status = "online"
-    });
+    return Results.Ok(status);
 });
 
 app.Run();

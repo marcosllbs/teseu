@@ -19,8 +19,10 @@
 .vs/
 .idea/
 
-# VS Code local settings
-.vscode/
+# VS Code local state (shared formatter settings are versioned)
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
 
 # Flutter / Dart
 .dart_tool/
