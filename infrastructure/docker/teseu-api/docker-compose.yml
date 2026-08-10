@@ -16,7 +16,12 @@ services:
 
     networks:
       - teseu-network
+      - monitoring
 
 networks:
   teseu-network:
     name: teseu-network
+
+  monitoring:
+    external: true
+    name: monitoring_default
