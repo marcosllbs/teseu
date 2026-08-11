@@ -63,3 +63,13 @@ public sealed record NetworkStatusDto
     public double? ReceivedBytes { get; init; }
     public double? TransmittedBytes { get; init; }
 }
+
+public sealed record ContainerStatusDto
+{
+    public required string Name { get; init; }
+    public double? CpuUsagePercent { get; init; }
+    public double? MemoryUsageBytes { get; init; }
+    public double? MemoryLimitBytes { get; init; }
+    public double? MemoryUsagePercent { get; init; }
+    public DateTime TimestampUtc { get; init; }
+}

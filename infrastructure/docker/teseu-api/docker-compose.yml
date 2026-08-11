@@ -13,10 +13,34 @@ services:
 
     environment:
       ASPNETCORE_ENVIRONMENT: Production
+      Ollama__BaseUrl: ${OLLAMA_BASE_URL:-http://ollama:11434}
+      Ollama__Model: ${OLLAMA_MODEL:-qwen3:4b-instruct-2507-q4_K_M}
+      Ollama__TimeoutSeconds: ${OLLAMA_TIMEOUT_SECONDS:-180}
+      Ollama__EnableThinking: ${OLLAMA_ENABLE_THINKING:-false}
+
+    depends_on:
+      - ollama
 
     networks:
       - teseu-network
       - monitoring
+
+  ollama:
+    image: ollama/ollama:0.11.4
+
+    container_name: ollama
+
+    restart: unless-stopped
+
+    environment:
+      OLLAMA_KEEP_ALIVE: ${OLLAMA_KEEP_ALIVE:-15m}
+      OLLAMA_MAX_LOADED_MODELS: 1
+
+    volumes:
+      - ollama-data:/root/.ollama
+
+    networks:
+      - teseu-network
 
 networks:
   teseu-network:
@@ -25,3 +49,7 @@ networks:
   monitoring:
     external: true
     name: monitoring_default
+
+volumes:
+  ollama-data:
+    name: teseu-ollama-data

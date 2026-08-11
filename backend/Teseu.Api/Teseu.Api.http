@@ -1,6 +1,15 @@
 @Teseu.Api_HostAddress = http://localhost:5114
 
-GET {{Teseu.Api_HostAddress}}/weatherforecast/
+GET {{Teseu.Api_HostAddress}}/api/server/status
 Accept: application/json
+
+###
+
+POST {{Teseu.Api_HostAddress}}/api/ai/chat
+Content-Type: application/json
+
+{
+  "message": "Qual o uso da CPU agora?"
+}
 
 ###
