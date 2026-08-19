@@ -13,6 +13,19 @@ services:
 
     environment:
       ASPNETCORE_ENVIRONMENT: Production
+
+      # Jarvis orchestrator
+      Jarvis__Provider: ${JARVIS_PROVIDER:-openai}
+      Jarvis__MaxToolIterations: ${JARVIS_MAX_TOOL_ITERATIONS:-5}
+
+      # OpenAI
+      OpenAI__ApiKey: ${OPENAI_API_KEY}
+      OpenAI__Model: ${OPENAI_MODEL:-gpt-4o-mini}
+      OpenAI__TimeoutSeconds: ${OPENAI_TIMEOUT_SECONDS:-60}
+      OpenAI__Temperature: ${OPENAI_TEMPERATURE:-0.1}
+      OpenAI__MaxTokens: ${OPENAI_MAX_TOKENS:-1024}
+
+      # Ollama (legacy)
       Ollama__BaseUrl: ${OLLAMA_BASE_URL:-http://ollama:11434}
       Ollama__Model: ${OLLAMA_MODEL:-qwen3:4b-instruct-2507-q4_K_M}
       Ollama__TimeoutSeconds: ${OLLAMA_TIMEOUT_SECONDS:-180}
